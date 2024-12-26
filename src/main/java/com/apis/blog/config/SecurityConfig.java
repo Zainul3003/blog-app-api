@@ -39,10 +39,9 @@ public class SecurityConfig {
 	   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {		   
 		   http
 		   .csrf(csrf -> csrf.disable())
-		   .cors(cors -> cors.disable())
 		   .authorizeHttpRequests(authz -> 
 		   	authz
-                .requestMatchers("/v2/api-docs","/api/auth/**","/swagger-ui/**").permitAll()
+                .requestMatchers("/v3/api-docs","/api/auth/**","/swagger-ui/**","/swagger-resources/**","/webjars/**").permitAll()
                 .requestMatchers(HttpMethod.GET).permitAll()
                 .anyRequest()
                 .authenticated())
